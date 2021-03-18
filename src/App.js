@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const friends = ['Kalam','jamal','Tina']
+  const friends = ['Kalam','jamal','Tina','jhanu']
   const Products = [
     {name: 'PhotoShop', price: '$99.99'},/* Product can do call 1st time for learning parpuse:   <Product name ={Products[0].name } price ={Products[0].price} ></Product>
     <Product name ={Products[1].name} price={Products[1].price}></Product>*/
@@ -15,8 +15,20 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
        <h2>I M REACT PERSONE!!!</h2>
        
+       <ul>
 
-      <Product product = {Products[0]}></Product>
+         {
+
+           friends.map(friend => <li>{friend}</li>)/* <ul></ul> under this map command are make of Dynamic any product going add then going auto update or any friends name // and all item name show list wise */
+         }
+
+         {
+           Products.map(product => <li>{product.name}</li>)
+         }
+       </ul>
+
+
+    <Product product = {Products[0]}></Product>
       <Product product = {Products[1]}></Product>
       <Product product = {Products[2]}></Product>
 
