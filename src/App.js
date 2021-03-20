@@ -1,3 +1,4 @@
+import React, {useState} from 'react'; // When you do state Declar in code Then You do write this line if not have :=
 import logo from './logo.svg';
 import './App.css';
 
@@ -14,6 +15,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
        <h2>I M REACT PERSONE!!!</h2>
+
+       <Counter></Counter>
        
        <ul>
 
@@ -26,7 +29,6 @@ function App() {
            Products.map(product => <li>{product.name}</li>)
          }
        </ul>
-
 
     <Product product = {Products[0]}></Product>
       <Product product = {Products[1]}></Product>
@@ -42,6 +44,38 @@ function App() {
   );
  
 }
+function Counter(){
+  const [count, setCount] = useState(5) // State Declare : 
+
+  const hamdleincrase = () => {
+
+    const AddCount = count + 1;
+
+    setCount(AddCount);
+
+  };
+ 
+  
+    const hamdleDecrase = () => {
+  
+      const DecCount = count - 1;
+  
+      setCount(DecCount);
+  
+    };
+  
+return(
+
+  <div>
+    <h1>Count:{count}</h1>
+    <button onClick ={hamdleincrase}>Incrase</button>
+    <button onClick = {hamdleDecrase}>Decrase</button>
+  </div>
+
+)
+
+}
+
 
 function Product(props){
   const StyleofProduct ={
