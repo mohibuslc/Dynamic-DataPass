@@ -1,4 +1,4 @@
-import React, {useState} from 'react'; // When you do state Declar in code Then You do write this line if not have :=
+import React, {useState , useEffect} from 'react'; // When you do state Declar in code Then You do write this line if not have :=
 import logo from './logo.svg';
 import './App.css';
 
@@ -16,6 +16,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
        <h2>I M REACT PERSONE!!!</h2>
 
+        <Users></Users>
        <Counter></Counter>
        
        <ul>
@@ -44,6 +45,8 @@ function App() {
   );
  
 }
+
+ 
 function Counter(){
   const [count, setCount] = useState(5) // State Declare : 
 
@@ -53,7 +56,7 @@ function Counter(){
 
     setCount(AddCount);
 
-  };
+  }
  
   
     const hamdleDecrase = () => {
@@ -62,7 +65,7 @@ function Counter(){
   
       setCount(DecCount);
   
-    };
+    }
   
 return(
 
@@ -75,7 +78,33 @@ return(
 )
 
 }
+// use useEffect and call API data
+function Users(){
+  const[users, setUsers] = useState([]);
+  
+  useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(res=>res.json())
+    .then(data => setUsers(data));
 
+
+  })
+ 
+  return(
+
+    <div>
+      <h3> Dynamic_Users:{users.length}</h3>
+    <ul>
+      {
+        console.log(users)
+      }
+      {
+        users.map(user =><li>{user.name}</li>)
+      }
+    </ul>
+      </div>
+  )
+}
 
 function Product(props){
   const StyleofProduct ={
